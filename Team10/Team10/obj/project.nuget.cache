@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "6WLCbX96ZJFu5XkN2ST+YqXBEmzakUknPPxOFkg3nrygzlOjMW3AGN6+jWfLX4OPbqV4j78eAfp+R+aJRUyWgw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lucas Phan\\Desktop\\Git Repo\\TeamProject\\Team10\\Team10\\Team10.csproj",
+=======
+  "dgSpecHash": "SrG54pXG+RZVUBu/3LnF9fQvrt+g3LVh3iFSwUpeNWq8AHI7+ALD2/valQZmut2IZMVejaESUWLLBAfXgJbDqA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ep104\\OneDrive\\Desktop\\TeamProject\\Team10\\Team10\\Team10.csproj",
+>>>>>>> 7bc815c3e8cfd83896d9ef899c997896ff69202a
   "expectedPackageFiles": [],
   "logs": []
 }
