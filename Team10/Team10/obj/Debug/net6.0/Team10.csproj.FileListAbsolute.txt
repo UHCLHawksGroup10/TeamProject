@@ -1,0 +1,15 @@
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\bin\Debug\net6.0\Team10.exe
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\bin\Debug\net6.0\Team10.deps.json
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\bin\Debug\net6.0\Team10.runtimeconfig.json
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\bin\Debug\net6.0\Team10.dll
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\bin\Debug\net6.0\ref\Team10.dll
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\bin\Debug\net6.0\Team10.pdb
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\obj\Debug\net6.0\Team10.csproj.AssemblyReference.cache
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\obj\Debug\net6.0\Team10.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\obj\Debug\net6.0\Team10.AssemblyInfoInputs.cache
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\obj\Debug\net6.0\Team10.AssemblyInfo.cs
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\obj\Debug\net6.0\Team10.csproj.CoreCompileInputs.cache
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\obj\Debug\net6.0\Team10.dll
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\obj\Debug\net6.0\ref\Team10.dll
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\obj\Debug\net6.0\Team10.pdb
+C:\Users\Lucas Phan\Desktop\Git Repo\TeamProject\Team10\Team10\obj\Debug\net6.0\Team10.genruntimeconfig.cache
