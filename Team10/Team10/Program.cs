@@ -5,3 +5,4 @@ Console.WriteLine("This is a test");
 =======
 Console.WriteLine("Eric made a commit!");
 >>>>>>> 7bc815c3e8cfd83896d9ef899c997896ff69202a
+Console.WriteLine("Test number Two");
