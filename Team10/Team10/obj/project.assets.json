@@ -8,19 +8,26 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\linke\\.nuget\\packages\\": {}
+    "C:\\Users\\ep104\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\linke\\OneDrive\\Documents\\GitHub\\TeamProject\\Team10\\Team10\\Team10.csproj",
+      "projectUniqueName": "C:\\Users\\ep104\\OneDrive\\Desktop\\TeamProject\\Team10\\Team10\\Team10.csproj",
       "projectName": "Team10",
-      "projectPath": "C:\\Users\\linke\\OneDrive\\Documents\\GitHub\\TeamProject\\Team10\\Team10\\Team10.csproj",
-      "packagesPath": "C:\\Users\\linke\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\linke\\OneDrive\\Documents\\GitHub\\TeamProject\\Team10\\Team10\\obj\\",
+      "projectPath": "C:\\Users\\ep104\\OneDrive\\Desktop\\TeamProject\\Team10\\Team10\\Team10.csproj",
+      "packagesPath": "C:\\Users\\ep104\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ep104\\OneDrive\\Desktop\\TeamProject\\Team10\\Team10\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\linke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ep104\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
