@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SrG54pXG+RZVUBu/3LnF9fQvrt+g3LVh3iFSwUpeNWq8AHI7+ALD2/valQZmut2IZMVejaESUWLLBAfXgJbDqA==",
+  "dgSpecHash": "6WLCbX96ZJFu5XkN2ST+YqXBEmzakUknPPxOFkg3nrygzlOjMW3AGN6+jWfLX4OPbqV4j78eAfp+R+aJRUyWgw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ep104\\OneDrive\\Desktop\\TeamProject\\Team10\\Team10\\Team10.csproj",
+  "projectFilePath": "C:\\Users\\Lucas Phan\\Desktop\\Git Repo\\TeamProject\\Team10\\Team10\\Team10.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\ep104\\OneDrive\\Desktop\\TeamProject\\Team10\\Team10\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
