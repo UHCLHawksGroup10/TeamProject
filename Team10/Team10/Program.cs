@@ -1,60 +1,104 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace team10
 {
-    public class Program
+
+    // Create a class to represent a Math problem
+    class MathProblem
     {
-        public static void Main()
+        private string description;
+        private double answer;
+
+        public MathProblem(string desc, double ans)
         {
-            Console.WriteLine("Welcome to SWEN5236 - Group 10 GRE Math project. \nThis " +
-                "program's purpose is to teach 6th grade math while using the GRE algorithm.");
-            Console.WriteLine("\nTo start, please select one of the following math problem options: (Enter 'q' to quit)");
-            Console.WriteLine("A.Multiplication \nB.Division \nC.Mixed Operations");
-            for (string input; (input = Console.ReadLine().ToUpper()) != "Q";)
+            description = desc;
+            answer = ans;
+        }
+
+        public string getDescription() { return description; }
+        public double getAnswer() { return answer; }
+        public bool checkAnswer(double ans)
+        {
+            return answer == ans;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create a list of math problems
+            List<MathProblem> problems = new List<MathProblem>();
+            problems.Add(new MathProblem("Solve: 2 * 11", 22));
+            problems.Add(new MathProblem("Solve: 7 * 7", 49));
+            problems.Add(new MathProblem("Solve: 22 * 3", 66));
+            problems.Add(new MathProblem("Solve: 50 / 5", 10));
+            problems.Add(new MathProblem("Solve: 27 / 3", 9));
+            problems.Add(new MathProblem("Solve: 4 / 2", 2));
+            problems.Add(new MathProblem("Solve: 3 * 4 / 2", 6));
+            problems.Add(new MathProblem("Solve: 20 / 10 * 2", 4));
+            problems.Add(new MathProblem("Solve: 1 * 2 / 2", 1));
+
+
+            display_menu(problems);
+
+            // Get option from user
+            int option = getMenuOption(1, 9); // between 1 and 9 because we have 9 problems
+
+            // Display problem again:
+            Console.WriteLine(problems[option - 1].getDescription());
+            Console.Write("Answer = ");
+            // Now, ask for answer
+            double answer = Convert.ToDouble(Console.ReadLine());
+
+            // Check if it is correct
+            bool correct = problems[option - 1].checkAnswer(answer);
+            if (correct)
             {
-                if (input == "A")
+                Console.WriteLine("That is correct!");
+            }
+            else
+            {
+                Console.WriteLine("Sorry, that is not correct.");
+            }
+
+            Console.Read();
+        }
+
+
+        // Create a function to display the Math problems (Menu)
+        static void display_menu(List<MathProblem> problems)
+        {
+
+            Console.WriteLine("Please select a math problem: (Problem 1 - 3 is multiplication, Problem 4 - 6 is Division, Problem 7 - 9 is Mixed)");
+            // Loop through problems and prints them
+            int i = 1;
+            foreach (MathProblem p in problems)
+            {
+                Console.WriteLine(i.ToString() + ") " + p.getDescription());
+                i += 1;
+            }
+        }
+
+        // Create a function that requests the user an integer that is inside a range
+        static int getMenuOption(int lower, int upper)
+        {
+            int option;
+
+            // Create a while-loop that will keep requesting user for an option until s/he enters a valid option
+            while (true)
+            {
+                Console.Write("Enter option: ");
+                option = Convert.ToInt32(Console.ReadLine());
+                if (option >= lower && option <= upper)
                 {
-                    Console.WriteLine("You've selected Muliplication");
-                    Console.WriteLine();
-                }
-                else if (input == "B")
-                {
-                    Console.WriteLine("You've selected Division");
-                }
-                else if (input == "C")
-                {
-                    Console.WriteLine("You've selected Mixed Operations");
+                    return option;
                 }
                 else
                 {
-                    Console.WriteLine("Please select A, B, C, or Q to quit");
+                    Console.WriteLine("Please enter a valid option between " + lower.ToString() + " and " + upper.ToString() + ".");
                 }
             }
-
-
-            Tuple<string, int, string>[] multiplicationProblems =
-            {
-                new Tuple<string, int, string>("6 x 5", 30, "Hard"),
-                new Tuple<string, int, string>("1 x 1", 1, "Easy"),
-                new Tuple<string, int, string>("2 x 2", 4, "Medium")
-            };
-
-            Tuple<string, int, string>[] divisionProblems =
-            {
-                new Tuple<string, int, string>("30 / 3", 10, "Hard"),
-                new Tuple<string, int, string>("2 / 2", 1, "Easy"),
-                new Tuple<string, int, string>("10 / 5", 2, "Medium")
-            };
-
-            Tuple<string, int, string>[] mixedProblems =
-            {
-                new Tuple<string, int, string>("6 x 5 / 2", 15, "Hard"),
-                new Tuple<string, int, string>("3 x 1 / 1", 3, "Easy"),
-                new Tuple<string, int, string>("4 x 2 / 4", 2, "Medium")
-            };
-
-            int score = 0;            
         }
     }
 }
-
