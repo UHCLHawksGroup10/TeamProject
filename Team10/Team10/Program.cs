@@ -36,7 +36,7 @@ namespace team10
             problems.Add(new MathProblem("Solve: 7 * 7", 49, "Solution: 7 * 7 = 49"));
             problems.Add(new MathProblem("Solve: 22 * 3", 66, "Solution: 22 * 3 = 66"));
             problems.Add(new MathProblem("Solve: 50 / 5", 10, "Solution: 50 / 5 = 10"));
-            problems.Add(new MathProblem("Solve: 27 / 3", 9, "Solution: 27 /3 = 9"));
+            problems.Add(new MathProblem("Solve: 27 / 3", 9, "Solution: 27 / 3 = 9"));
             problems.Add(new MathProblem("Solve: 4 / 2", 2, "Solution: 4 / 2 = 2"));
             problems.Add(new MathProblem("Solve: 3 * 4 / 2", 6, "Solution: 3 * 4 = 12 / 2 = 6"));
             problems.Add(new MathProblem("Solve: 20 / 10 * 2", 4, "Solution: 20 / 10 = 2 * 2 = 4"));
