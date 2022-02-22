@@ -9,11 +9,13 @@ namespace team10
     {
         private string description;
         private double answer;
+        private string solution;
 
-        public MathProblem(string desc, double ans)
+        public MathProblem(string desc, double ans, string sol)
         {
             description = desc;
             answer = ans;
+            solution = sol;
         }
 
         public string getDescription() { return description; }
@@ -22,22 +24,23 @@ namespace team10
         {
             return answer == ans;
         }
+        public string getSolution() { return solution; }
     }
     class Program
     {
         static void Main(string[] args)
         {
-            // Create a list of math problems
+            // Create a list of math problems with answers and solutions
             List<MathProblem> problems = new List<MathProblem>();
-            problems.Add(new MathProblem("Solve: 2 * 11", 22));
-            problems.Add(new MathProblem("Solve: 7 * 7", 49));
-            problems.Add(new MathProblem("Solve: 22 * 3", 66));
-            problems.Add(new MathProblem("Solve: 50 / 5", 10));
-            problems.Add(new MathProblem("Solve: 27 / 3", 9));
-            problems.Add(new MathProblem("Solve: 4 / 2", 2));
-            problems.Add(new MathProblem("Solve: 3 * 4 / 2", 6));
-            problems.Add(new MathProblem("Solve: 20 / 10 * 2", 4));
-            problems.Add(new MathProblem("Solve: 1 * 2 / 2", 1));
+            problems.Add(new MathProblem("Solve: 2 * 11", 22, "Solution: 2 * 11 = 22"));
+            problems.Add(new MathProblem("Solve: 7 * 7", 49, "Solution: 7 * 7 = 49"));
+            problems.Add(new MathProblem("Solve: 22 * 3", 66, "Solution: 22 * 3 = 66"));
+            problems.Add(new MathProblem("Solve: 50 / 5", 10, "Solution: 50 / 5 = 10"));
+            problems.Add(new MathProblem("Solve: 27 / 3", 9, "Solution: 27 /3 = 9"));
+            problems.Add(new MathProblem("Solve: 4 / 2", 2, "Solution: 4 / 2 = 2"));
+            problems.Add(new MathProblem("Solve: 3 * 4 / 2", 6, "Solution: 3 * 4 = 12 / 2 = 6"));
+            problems.Add(new MathProblem("Solve: 20 / 10 * 2", 4, "Solution: 20 / 10 = 2 * 2 = 4"));
+            problems.Add(new MathProblem("Solve: 1 * 2 / 2", 1, "Solution: 1 * 2 = 2 / 2 = 1"));
 
 
             display_menu(problems);
@@ -60,6 +63,7 @@ namespace team10
             else
             {
                 Console.WriteLine("Sorry, that is not correct.");
+                Console.WriteLine(problems[option - 1].getSolution());
             }
 
             Console.Read();
@@ -80,7 +84,7 @@ namespace team10
             }
         }
 
-        // Create a function that requests the user an integer that is inside a range
+        // Create a function that requests the user enter an a valid option
         static int getMenuOption(int lower, int upper)
         {
             int option;
