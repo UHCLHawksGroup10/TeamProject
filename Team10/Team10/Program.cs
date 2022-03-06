@@ -28,12 +28,14 @@ namespace team10
         private string description;
         private double answer;
         private string solution;
+        private int points;
 
-        public MathProblem(string desc, double ans, string sol)
+        public MathProblem(string desc, double ans, string sol, int pts)
         {
             description = desc;
             answer = ans;
             solution = sol;
+            points = pts;
         }
 
         public string getDescription() { return description; }
@@ -43,6 +45,7 @@ namespace team10
             return answer == ans;
         }
         public string getSolution() { return solution; }
+        public int getPoints() { return points; }
     }
     class Program
     {
@@ -58,15 +61,15 @@ namespace team10
 
             // Create a list of math problems with answers and solutions
             List<MathProblem> problems = new List<MathProblem>();
-            problems.Add(new MathProblem("Solve: 2 * 11", 22, "Solution: 2 * 11 = 22"));
-            problems.Add(new MathProblem("Solve: 7 * 7", 49, "Solution: 7 * 7 = 49"));
-            problems.Add(new MathProblem("Solve: 22 * 3", 66, "Solution: 22 * 3 = 66"));
-            problems.Add(new MathProblem("Solve: 50 / 5", 10, "Solution: 50 / 5 = 10"));
-            problems.Add(new MathProblem("Solve: 27 / 3", 9, "Solution: 27 / 3 = 9"));
-            problems.Add(new MathProblem("Solve: 4 / 2", 2, "Solution: 4 / 2 = 2"));
-            problems.Add(new MathProblem("Solve: 3 * 4 / 2", 6, "Solution: 3 * 4 = 12 / 2 = 6"));
-            problems.Add(new MathProblem("Solve: 20 / 10 * 2", 4, "Solution: 20 / 10 = 2 * 2 = 4"));
-            problems.Add(new MathProblem("Solve: 1 * 2 / 2", 1, "Solution: 1 * 2 = 2 / 2 = 1"));
+            problems.Add(new MathProblem("Solve: 2 * 11", 22, "Solution: 2 * 11 = 22", 10));
+            problems.Add(new MathProblem("Solve: 7 * 7", 49, "Solution: 7 * 7 = 49", 20));
+            problems.Add(new MathProblem("Solve: 22 * 3", 66, "Solution: 22 * 3 = 66", 30));
+            problems.Add(new MathProblem("Solve: 4 / 2", 2, "Solution: 4 / 2 = 2", 10));
+            problems.Add(new MathProblem("Solve: 27 / 3", 9, "Solution: 27 / 3 = 9", 20));
+            problems.Add(new MathProblem("Solve: 50 / 5", 10, "Solution: 50 / 5 = 10", 30));
+            problems.Add(new MathProblem("Solve: 1 * 2 / 2", 1, "Solution: 1 * 2 = 2 / 2 = 1", 10));
+            problems.Add(new MathProblem("Solve: 3 * 4 / 2", 6, "Solution: 3 * 4 = 12 / 2 = 6", 20));
+            problems.Add(new MathProblem("Solve: 20 / 10 * 2", 4, "Solution: 20 / 10 = 2 * 2 = 4", 30));            
 
             display_menu(menus);
 
@@ -75,22 +78,18 @@ namespace team10
             if(menu_option == 1)
             {
                 char problemChoice = 'y';
-
                 while (problemChoice == 'y')
                 {
                     userGrade(problems);
                     Console.WriteLine("Would you like to continue? (Enter y/n)");
                     problemChoice = Convert.ToChar(Console.ReadLine());
-                    display_menu(menus);
-                    menu_option = getMenuOption(1, 5);
                 }
-                /*
                 display_menu(menus);
-                menu_option = getMenuOption(1, 5);*/
+                menu_option = getMenuOption(1, 5);
             }
             if(menu_option == 2)
             {
-                Console.WriteLine("Your total score is: ");
+                Console.WriteLine("Your total score is: " );
             }
             if(menu_option == 3)
             {
@@ -155,7 +154,6 @@ namespace team10
             if (correct)
             {
                 Console.WriteLine("That is correct!");
-                
             }
             else
             {
