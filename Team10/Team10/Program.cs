@@ -3,7 +3,25 @@ using System.Collections.Generic;
 
 namespace team10
 {
+    // Create a class to represent the Main menu
+    class Menu
+    {
+        private int menuItem;
+        private string menuDescription;
 
+        public Menu(int mItem, string mDescription)
+        {
+            menuItem = mItem;
+            menuDescription = mDescription;
+        }
+
+        public int getMenuItem() { return menuItem; }
+        public string getMenuDescription() { return menuDescription; }
+        public bool checkMenuItem(int mItem)
+        {
+            return menuItem == mItem;
+        }
+    }
     // Create a class to represent a Math problem
     class MathProblem
     {
@@ -30,6 +48,14 @@ namespace team10
     {
         static void Main(string[] args)
         {
+            //A list of Main menu options
+            List<Menu> menus = new List<Menu>();
+            menus.Add(new Menu(1, "Work on Math Problems"));
+            menus.Add(new Menu(2, "Check my total score"));
+            menus.Add(new Menu(3, "Review incorrect problems"));
+            menus.Add(new Menu(4, "Useful links"));
+            menus.Add(new Menu(5, "Exit"));
+
             // Create a list of math problems with answers and solutions
             List<MathProblem> problems = new List<MathProblem>();
             problems.Add(new MathProblem("Solve: 2 * 11", 22, "Solution: 2 * 11 = 22"));
@@ -42,15 +68,85 @@ namespace team10
             problems.Add(new MathProblem("Solve: 20 / 10 * 2", 4, "Solution: 20 / 10 = 2 * 2 = 4"));
             problems.Add(new MathProblem("Solve: 1 * 2 / 2", 1, "Solution: 1 * 2 = 2 / 2 = 1"));
 
+            display_menu(menus);
 
-            display_menu(problems);
+            int menu_option = getMenuOption(1, 5); //between 1 and 5 because we have 5 options
 
-            // Get option from user
+            if(menu_option == 1)
+            {
+                char problemChoice = 'y';
+
+                while (problemChoice == 'y')
+                {
+                    userGrade(problems);
+                    Console.WriteLine("Would you like to continue? (Enter y/n)");
+                    problemChoice = Convert.ToChar(Console.ReadLine());
+                    display_menu(menus);
+                    menu_option = getMenuOption(1, 5);
+                }
+                /*
+                display_menu(menus);
+                menu_option = getMenuOption(1, 5);*/
+            }
+            if(menu_option == 2)
+            {
+                Console.WriteLine("Your total score is: ");
+            }
+            if(menu_option == 3)
+            {
+                Console.WriteLine("These are that problems that you missed: ");
+            }
+            if(menu_option == 4)
+            {
+                Console.WriteLine("You may visit these websites to practice more problems: ");
+                Console.WriteLine("https://www.ixl.com/math/grade-6");
+                Console.WriteLine("https://www.khanacademy.org/math/cc-sixth-grade-math");
+                Console.WriteLine("https://www.mathgames.com/grade6");
+            }
+            else
+            {
+                Console.WriteLine("Remember to continue practicing!");
+            }
+        }
+
+        // Create a function to display the Main menu
+        static void display_menu(List<Menu> menus)
+        {
+            Console.WriteLine("Please select an option: ");
+            // Loop through menu items and prints them
+            int i = 1;
+            foreach (Menu p in menus)
+            {
+                Console.WriteLine(i.ToString() + ") " + p.getMenuDescription());
+                i += 1;
+            }
+        }
+
+        // Create a function to display the Math problems
+        static void display_problems(List<MathProblem> problems)
+        {
+            Console.WriteLine("Please select a math problem: (Problem 1 - 3 is multiplication, Problem 4 - 6 is Division, Problem 7 - 9 is Mixed)");
+            Console.WriteLine("Enter 0 to quit.");
+            // Loop through problems and prints them
+            int i = 1;
+            foreach (MathProblem p in problems)
+            {
+                Console.WriteLine(i.ToString() + ") " + p.getDescription());
+                i += 1;
+            }
+        }
+
+        // Create a function to check user calculations
+        static void userGrade(List<MathProblem> problems)
+        {
+
+            display_problems(problems);
+
             int option = getMenuOption(1, 9); // between 1 and 9 because we have 9 problems
-
             // Display problem again:
             Console.WriteLine(problems[option - 1].getDescription());
             Console.Write("Answer = ");
+
             // Now, ask for answer
             double answer = Convert.ToDouble(Console.ReadLine());
 
@@ -59,29 +155,13 @@ namespace team10
             if (correct)
             {
                 Console.WriteLine("That is correct!");
+                
             }
             else
             {
                 Console.WriteLine("Sorry, that is not correct.");
                 Console.WriteLine(problems[option - 1].getSolution());
-            }
-
-            Console.Read();
-        }
-
-
-        // Create a function to display the Math problems (Menu)
-        static void display_menu(List<MathProblem> problems)
-        {
-
-            Console.WriteLine("Please select a math problem: (Problem 1 - 3 is multiplication, Problem 4 - 6 is Division, Problem 7 - 9 is Mixed)");
-            // Loop through problems and prints them
-            int i = 1;
-            foreach (MathProblem p in problems)
-            {
-                Console.WriteLine(i.ToString() + ") " + p.getDescription());
-                i += 1;
-            }
+            }            
         }
 
         // Create a function that requests the user enter an a valid option
