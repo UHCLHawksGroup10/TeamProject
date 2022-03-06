@@ -47,6 +47,7 @@ namespace team10
         public string getSolution() { return solution; }
         public int getPoints() { return points; }
     }
+    // Main class of the program
     class Program
     {
         static void Main(string[] args)
@@ -69,80 +70,99 @@ namespace team10
             problems.Add(new MathProblem("Solve: 50 / 5", 10, "Solution: 50 / 5 = 10", 30));
             problems.Add(new MathProblem("Solve: 1 * 2 / 2", 1, "Solution: 1 * 2 = 2 / 2 = 1", 10));
             problems.Add(new MathProblem("Solve: 3 * 4 / 2", 6, "Solution: 3 * 4 = 12 / 2 = 6", 20));
-            problems.Add(new MathProblem("Solve: 20 / 10 * 2", 4, "Solution: 20 / 10 = 2 * 2 = 4", 30));            
+            problems.Add(new MathProblem("Solve: 20 / 10 * 2", 4, "Solution: 20 / 10 = 2 * 2 = 4", 30));
 
-            // Show the main menu
-            display_menu(menus);
-            int menu_option = getMenuOption(1, 5); //between 1 and 5 because we have 5 options
-
+            // Variables to hold user's scores and incorrect problems
             var incorrectProbs = new List<string>();
             var userScore = 0;
 
-            if(menu_option == 1)
+            // Show the main menu
+            display_menu(menus);
+            int menu_option = getMenuOption(1, 5); //between 1 and 5 because we have 5 options            
+
+            do
             {
-                char problemChoice = 'y';
-                while (problemChoice == 'y')
+                // Allows the user to select different math problems - Feature #1
+                if (menu_option == 1)
                 {
-                    display_problems(problems);
-
-                    int option = getMenuOption(1, 9); // between 1 and 9 because we have 9 problems
-                    // Display problem again:
-                    Console.WriteLine(problems[option - 1].getDescription());
-                    Console.Write("Answer = ");
-
-                    // Now, ask for answer
-                    double answer = Convert.ToDouble(Console.ReadLine());
-
-                    // Check if it is correct
-                    bool correct = problems[option - 1].checkAnswer(answer);
-                    if (correct)
+                    char problemChoice = 'y';
+                    while (problemChoice == 'y')
                     {
-                        Console.WriteLine("That is correct!");
-                        userScore = userScore + problems[option - 1].getPoints();
+                        display_problems(problems);
+                        int option = getMenuOption(1, 9); // between 1 and 9 because we have 9 problems
+                        
+                        // Display problem again:
+                        Console.WriteLine(problems[option - 1].getDescription());
+                        Console.Write("Answer = ");
+
+                        // Now, ask for answer
+                        double answer = Convert.ToDouble(Console.ReadLine());
+
+                        // Check if it is correct
+                        bool correct = problems[option - 1].checkAnswer(answer);
+                        // If the answer is correct, update the user's score
+                        if (correct)
+                        {
+                            Console.WriteLine("That is correct!");
+                            userScore = userScore + problems[option - 1].getPoints();
+                        }
+                        // If the answer is incorrect, display the solution - Feature #2
+                        else
+                        {
+                            Console.WriteLine("Sorry, that is not correct.");
+                            Console.WriteLine(problems[option - 1].getSolution());
+                            incorrectProbs.Add(problems[option - 1].getDescription());
+                        }
+                        Console.WriteLine("Would you like to continue? (Enter y/n)");
+                        problemChoice = Convert.ToChar(Console.ReadLine());
+                        Console.Clear();
                     }
-                    else
-                    {
-                        Console.WriteLine("Sorry, that is not correct.");
-                        Console.WriteLine(problems[option - 1].getSolution());
-                        incorrectProbs.Add(problems[option - 1].getDescription());
-                    }
-                    Console.WriteLine("Would you like to continue? (Enter y/n)");
-                    problemChoice = Convert.ToChar(Console.ReadLine());
+
+                    display_menu(menus);
+                    menu_option = getMenuOption(1, 5);
                 }
-                display_menu(menus);
-                menu_option = getMenuOption(1, 5);
-            }
-            if(menu_option == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Your total score is: " + userScore);
-            }
-            if(menu_option == 3)
-            {
-                Console.Clear();
-                foreach (var probs in incorrectProbs)
+                // Display the user's total scores - Feature #4
+                if (menu_option == 2)
                 {
-                    Console.WriteLine("These are that problems that you missed: " + probs);
-                }         
-            }
-            if(menu_option == 4)
-            {
-                Console.Clear();
-                Console.WriteLine("You may visit these websites to practice more problems: ");
-                Console.WriteLine("https://www.ixl.com/math/grade-6");
-                Console.WriteLine("https://www.khanacademy.org/math/cc-sixth-grade-math");
-                Console.WriteLine("https://www.mathgames.com/grade6");
-            }
-            if(menu_option == 5)
-            {
-                Console.WriteLine("Remember to continue practicing!");
-            }
+                    Console.Clear();
+                    Console.WriteLine("Your total score is: " + userScore);
+                    Console.WriteLine(" ");
+                    display_menu(menus);
+                    menu_option = getMenuOption(1, 5);
+                }
+                // Display the user's incorrect problems - Feature #3
+                if (menu_option == 3)
+                {
+                    Console.Clear();
+                    foreach (var probs in incorrectProbs)
+                    {
+                        Console.WriteLine("These are that problems that you missed: " + probs);
+                    }
+                    Console.WriteLine(" ");
+                    display_menu(menus);
+                    menu_option = getMenuOption(1, 5);
+                }
+                // Display helpful links - Feature #5
+                if (menu_option == 4)
+                {
+                    Console.Clear();
+                    Console.WriteLine("You may visit these websites to practice more problems: ");
+                    Console.WriteLine("https://www.ixl.com/math/grade-6");
+                    Console.WriteLine("https://www.khanacademy.org/math/cc-sixth-grade-math");
+                    Console.WriteLine("https://www.mathgames.com/grade6");
+                    Console.WriteLine(" ");
+                    display_menu(menus);
+                    menu_option = getMenuOption(1, 5);
+                }
+            } while (menu_option >= 1 && menu_option <= 4);            
+            
+            Console.WriteLine("Remember to continue practicing!");
+            
         }
 
         // Create a function to display the Main menu
         static void display_menu(List<Menu> menus)
         {
-            Console.Clear();
             Console.WriteLine("Please select an option: ");
             // Loop through menu items and prints them
             int i = 1;
